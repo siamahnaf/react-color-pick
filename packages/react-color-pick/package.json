@@ -1,8 +1,8 @@
 {
   "name": "@siamf/react-color-pick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An easy to use canva style react color picker tool.",
-  "homepage": "https://github.com/siamahnaf/react-color-pick",
+  "homepage": "https://react-color-pick-docs.vercel.app/",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
