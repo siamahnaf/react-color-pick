@@ -1,0 +1,54 @@
+{
+  "name": "@siamf/react-color-pick",
+  "version": "1.0.0",
+  "description": "An easy to use canva style react color picker tool.",
+  "homepage": "https://github.com/siamahnaf/react-color-pick",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "publish": "turbo run build lint test && changeset version && changeset publish"
+  },
+  "author": {
+    "name": "Siam Ahnaf",
+    "email": "mail@siamahnaf.com",
+    "url": "https://www.siamahnaf.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "React color picker",
+    "Canva style color picker",
+    "React eyedropper tool",
+    "Color picker component",
+    "React color palette",
+    "UI color picker React",
+    "Modern color picker React",
+    "React design tools",
+    "React color input",
+    "Color selector React"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/siamahnaf/react-color-pick",
+    "url": "https://github.com/siamahnaf/react-color-pick"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19"
+  }
+}
