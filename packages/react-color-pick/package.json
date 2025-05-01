@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "publish": "turbo run build lint test && changeset version && changeset publish"
+    "publish": "turbo run build lint test && changeset version && changeset publish --access public"
   },
   "author": {
     "name": "Siam Ahnaf",
