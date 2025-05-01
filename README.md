@@ -31,7 +31,7 @@ $ npm i @siamf/react-color-pick
 import { useState } from "react";
 import { ColorPicker } from "@siamf/react-color-pick";
 
-const PickerDocs = () => {
+const Sample = () => {
     const [color, setColor] = useState<string>("#C11FB5");
 
     return (
@@ -44,7 +44,23 @@ const PickerDocs = () => {
     );
 };
 
-export default PickerDocs;
+export default Sample;
+```
+
+# Styling (CSS)
+
+If you are not using tailwind css please import the css file-
+
+```javascript
+import "@siamf/react-color-pick/dist/index.css"
+```
+
+If you are using tailwind css-
+
+```css
+@source "../../node_modules/@siamf/react-color-pick"; 
+
+//Adjust the package path if need
 ```
 
 # Available props
