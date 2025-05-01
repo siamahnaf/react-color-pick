@@ -1,6 +1,6 @@
 {
   "name": "@siamf/react-color-pick",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An easy to use canva style react color picker tool.",
   "homepage": "https://github.com/siamahnaf/react-color-pick",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "publish": "turbo run build lint test && changeset version && changeset publish --access public"
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "author": {
     "name": "Siam Ahnaf",
@@ -38,13 +38,18 @@
     "url": "https://github.com/siamahnaf/react-color-pick"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.2",
+    "@tailwindcss/postcss": "^4.1.5",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
+    "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.5",
     "tsup": "^8.4.0",
+    "turbo": "^2.5.2",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
