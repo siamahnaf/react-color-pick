@@ -1,6 +1,6 @@
 {
   "name": "@siamf/react-color-pick",
-  "version": "1.5.0",
+  "version": "1.5.4",
   "description": "An easy to use canva style react color picker tool.",
   "homepage": "https://react-color-pick-docs.vercel.app/",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
+    "pub": "turbo run build && changeset version && changeset publish"
   },
   "author": {
     "name": "Siam Ahnaf",
@@ -38,19 +38,19 @@
     "url": "https://github.com/siamahnaf/react-color-pick"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.2",
-    "@tailwindcss/postcss": "^4.1.5",
-    "@types/node": "^22",
+    "@changesets/cli": "^2.29.8",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "postcss": "^8.5.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.5",
-    "tsup": "^8.4.0",
-    "turbo": "^2.5.2",
-    "typescript": "^5.8.3"
+    "postcss": "^8.5.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18",
+    "tsup": "^8.5.1",
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "react": "^17 || ^18 || ^19",
