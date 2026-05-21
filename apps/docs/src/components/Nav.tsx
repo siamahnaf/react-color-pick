@@ -1,9 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -11,6 +15,9 @@ const Nav = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const packageHref = isHome ? "#package" : "/#package";
+  const extensionHref = isHome ? "#extension" : "/#extension";
 
   return (
     <header
@@ -21,7 +28,7 @@ const Nav = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl bg-brand-gradient p-1.5 shadow-brand group-hover:scale-105 transition-transform">
             <Image
               src="/logo.png"
@@ -35,17 +42,17 @@ const Nav = () => {
             <div className="text-sm font-bold tracking-tight leading-tight">Color Tools</div>
             <div className="text-[10px] text-purple-700/60 leading-tight">by Siam Ahnaf</div>
           </div>
-        </a>
+        </Link>
 
         <nav className="flex items-center gap-1 sm:gap-2 text-sm font-medium">
           <a
-            href="#package"
+            href={packageHref}
             className="px-3 py-1.5 rounded-full text-purple-900/80 hover:text-purple-900 hover:bg-purple-100/60 transition"
           >
             React Package
           </a>
           <a
-            href="#extension"
+            href={extensionHref}
             className="px-3 py-1.5 rounded-full text-purple-900/80 hover:text-purple-900 hover:bg-purple-100/60 transition"
           >
             Chrome Extension

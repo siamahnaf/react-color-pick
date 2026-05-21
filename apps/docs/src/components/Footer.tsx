@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const socials = [
   { href: "https://siamahnaf.com/", label: "Website", icon: (
@@ -49,8 +50,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider text-pink-200/90 mb-3">Project</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#package" className="text-purple-100/80 hover:text-white transition">React Package</a></li>
-              <li><a href="#extension" className="text-purple-100/80 hover:text-white transition">Chrome Extension</a></li>
+              <li><Link href="/#package" className="text-purple-100/80 hover:text-white transition">React Package</Link></li>
+              <li><Link href="/#extension" className="text-purple-100/80 hover:text-white transition">Chrome Extension</Link></li>
+              <li><Link href="/privacy" className="text-purple-100/80 hover:text-white transition">Privacy Policy</Link></li>
               <li><a href="https://www.npmjs.com/package/@siamf/react-color-pick" target="_blank" rel="noopener noreferrer" className="text-purple-100/80 hover:text-white transition">npm</a></li>
               <li><a href="https://github.com/siamahnaf" target="_blank" rel="noopener noreferrer" className="text-purple-100/80 hover:text-white transition">GitHub</a></li>
             </ul>
