@@ -1,4 +1,26 @@
+"use client";
+import { useEffect, useState } from "react";
 import ExtensionMockup from "./ExtensionMockup";
+
+type SupportedBrowser = "Chrome" | "Edge" | "Brave" | "Opera";
+
+const detectBrowser = async (): Promise<SupportedBrowser> => {
+  if (typeof navigator === "undefined") return "Chrome";
+  const ua = navigator.userAgent;
+
+  try {
+    const brave = (navigator as unknown as { brave?: { isBrave?: () => Promise<boolean> } }).brave;
+    if (brave?.isBrave && (await brave.isBrave())) return "Brave";
+  } catch {
+    // fall through
+  }
+
+  if (/Edg\//.test(ua)) return "Edge";
+  if (/OPR\/|Opera/.test(ua)) return "Opera";
+  if (/Chrome\//.test(ua) && !/Firefox|FxiOS/.test(ua)) return "Chrome";
+
+  return "Chrome";
+};
 
 const features = [
   {
@@ -74,18 +96,21 @@ const features = [
   },
 ];
 
-const installSteps = [
+const CHROME_STORE_URL =
+  "https://chromewebstore.google.com/detail/color-picker-by-siam-ahna/melggcnjlkhgjnnbhadkbdocjilkcnil";
+
+const getInstallSteps = (browser: SupportedBrowser) => [
   {
-    title: "Open Chrome Extensions",
-    desc: "Go to chrome://extensions in your browser address bar.",
+    title: "Open the Web Store",
+    desc: "Visit the extension's listing on the Chrome Web Store.",
   },
   {
-    title: "Enable Developer Mode",
-    desc: "Flip the toggle in the top-right corner of the extensions page.",
+    title: `Add to ${browser}`,
+    desc: `Click the "Add to ${browser}" button at the top-right of the listing.`,
   },
   {
-    title: "Load Unpacked",
-    desc: "Click \"Load unpacked\" and select the color-picker folder from this repo.",
+    title: "Confirm install",
+    desc: "Approve the permissions prompt — it installs in seconds.",
   },
   {
     title: "Pin & enjoy",
@@ -94,6 +119,16 @@ const installSteps = [
 ];
 
 const ExtensionSection = () => {
+  const [browser, setBrowser] = useState<SupportedBrowser>("Chrome");
+
+  useEffect(() => {
+    detectBrowser()
+      .then(setBrowser)
+      .catch(() => setBrowser("Chrome"));
+  }, []);
+
+  const installSteps = getInstallSteps(browser);
+
   return (
     <section
       id="extension"
@@ -179,9 +214,23 @@ const ExtensionSection = () => {
             <div className="text-center mb-8">
               <h3 className="text-2xl sm:text-3xl font-bold text-purple-900">Install in 4 quick steps</h3>
               <p className="text-purple-900/60 mt-2 text-sm">
-                The extension isn&apos;t on the Chrome Web Store yet — load it as an unpacked
-                extension from this repo.
+                Now live on the Chrome Web Store — one click and you&apos;re picking colors.
               </p>
+              <a
+                href={CHROME_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-gradient text-white font-semibold shadow-brand hover:shadow-brand-lg hover:scale-[1.03] transition"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="4" />
+                  <line x1="21.17" y1="8" x2="12" y2="8" />
+                  <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                  <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+                </svg>
+                Add to {browser}
+              </a>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {installSteps.map((step, i) => (
