@@ -44,10 +44,6 @@ const usageHighlighted = `<span class="tok-str">"use client"</span>
 
 const cssImport = `import "@siamf/react-color-pick/dist/index.css"`;
 
-const tailwindImport = `@source "../../node_modules/@siamf/react-color-pick";
-
-/* Adjust the package path if needed */`;
-
 const features = [
   {
     icon: (
@@ -88,7 +84,7 @@ const features = [
       </svg>
     ),
     title: "Tailwind ready",
-    desc: "First-class Tailwind v4 support, plus a plain CSS file when you need it.",
+    desc: "Prefixed, scoped CSS that never clashes with your Tailwind or app styles.",
   },
 ];
 
@@ -191,31 +187,17 @@ const ReactPackageSection = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          <div>
-            <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-pink-600 mb-3">
-              <span className="w-7 h-7 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-extrabold text-xs">
-                03
-              </span>
-              Styling — plain CSS
-            </h3>
-            <p className="text-sm text-purple-900/70 mb-3">
-              Not using Tailwind? Import the bundled stylesheet.
-            </p>
-            <CodeBlock code={cssImport} language="ts" filename="app.tsx" />
-          </div>
-          <div>
-            <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-pink-600 mb-3">
-              <span className="w-7 h-7 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-extrabold text-xs">
-                03
-              </span>
-              Styling — Tailwind v4
-            </h3>
-            <p className="text-sm text-purple-900/70 mb-3">
-              Add the package as a Tailwind source so utilities are scanned.
-            </p>
-            <CodeBlock code={tailwindImport} language="css" filename="globals.css" />
-          </div>
+        <div className="mb-16">
+          <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-pink-600 mb-3">
+            <span className="w-7 h-7 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-extrabold text-xs">
+              03
+            </span>
+            Styling
+          </h3>
+          <p className="text-sm text-purple-900/70 mb-3">
+            Import the bundled stylesheet once — works with or without Tailwind.
+          </p>
+          <CodeBlock code={cssImport} language="ts" filename="app.tsx" />
         </div>
 
         <div>

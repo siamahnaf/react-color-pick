@@ -195,10 +195,10 @@ const ColorPicker = ({
     }
 
     return (
-        <div className={`w-full max-w-xs ${className}`}>
+        <div className={`rcp-root rcp:w-full rcp:max-w-xs ${className}`}>
             <div
                 ref={gradientRef}
-                className={`relative w-full h-[140px] rounded-lg cursor-crosshair mb-2 ${selectorClassName}`}
+                className={`rcp:relative rcp:w-full rcp:h-[140px] rcp:rounded-lg rcp:cursor-crosshair rcp:mb-2 ${selectorClassName}`}
                 style={{
                     background: `linear-gradient(to bottom, rgba(0,0,0,0), #000), linear-gradient(to right, #fff, hsl(${hue}, 100%, 50%))`,
                 }}
@@ -207,7 +207,7 @@ const ColorPicker = ({
             >
                 <div
                     ref={gradientDotRef}
-                    className={`absolute w-4 h-4 rounded-full border-[4px] border-white transform -translate-x-1/2 -translate-y-1/2 pointer-events-none shadow-[0_0_0_1px_rgba(0,0,0,0.02)] ${selectorDotClassName}`}
+                    className={`rcp:absolute rcp:w-4 rcp:h-4 rcp:rounded-full rcp:border-[4px] rcp:border-white rcp:transform rcp:-translate-x-1/2 rcp:-translate-y-1/2 rcp:pointer-events-none rcp:shadow-[0_0_0_1px_rgba(0,0,0,0.02)] ${selectorDotClassName}`}
                     style={{
                         left: position.x,
                         top: position.y,
@@ -216,7 +216,7 @@ const ColorPicker = ({
             </div>
             <div
                 ref={sliderRef}
-                className={`relative w-full h-[14px] rounded-lg cursor-pointer mb-2 ${hueClassName}`}
+                className={`rcp:relative rcp:w-full rcp:h-[14px] rcp:rounded-lg rcp:cursor-pointer rcp:mb-2 ${hueClassName}`}
                 style={{
                     background: "linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)",
                 }}
@@ -224,16 +224,16 @@ const ColorPicker = ({
                 onTouchStart={handleSliderMouseDown}
             >
                 <div
-                    className={`absolute w-[11px] h-[11px] rounded-full bg-white border border-gray-300 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 shadow-[0_0_0_1px_rgba(0,0,0,0.01),0_2px_4px_rgba(0,0,0,0.02)] ${hueSliderClassName}`}
+                    className={`rcp:absolute rcp:w-[11px] rcp:h-[11px] rcp:rounded-full rcp:bg-white rcp:border rcp:border-gray-300 rcp:transform rcp:-translate-x-1/2 rcp:-translate-y-1/2 rcp:pointer-events-none rcp:top-1/2 rcp:shadow-[0_0_0_1px_rgba(0,0,0,0.01),0_2px_4px_rgba(0,0,0,0.02)] ${hueSliderClassName}`}
                     style={{
                         left: `${(hue / 360) * 100}%`,
                     }}
                 />
             </div>
-            <div className="flex gap-2">
-                <div className="relative flex-1">
+            <div className="rcp:flex rcp:gap-2">
+                <div className="rcp:relative rcp:flex-1">
                     <div
-                        className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full flex-shrink-0 border border-solid border-gray-200 ${colorPreviewClassName}`}
+                        className={`rcp:absolute rcp:left-3 rcp:top-1/2 rcp:transform rcp:-translate-y-1/2 rcp:w-6 rcp:h-6 rcp:rounded-full rcp:flex-shrink-0 rcp:border rcp:border-solid rcp:border-gray-200 ${colorPreviewClassName}`}
                         style={{ backgroundColor: isValidColor ? color : "#CCCCCC" }}
                     />
                     <input
@@ -241,17 +241,17 @@ const ColorPicker = ({
                         value={inputValue}
                         onChange={handleHexChange}
                         onBlur={handleInputBlur}
-                        className={`w-full pl-12 bg-white pr-10 py-2 border ${isValidColor ? "border-gray-300" : "border-red-500"
-                            } rounded-lg focus:outline-none hover:border-gray-400 ${isValidColor ? "focus:border-purple-500" : "focus:border-red-500"
+                        className={`rcp:w-full rcp:pl-12 rcp:bg-white rcp:pr-10 rcp:py-2 rcp:border ${isValidColor ? "rcp:border-gray-300" : "rcp:border-red-500"
+                            } rcp:rounded-lg rcp:focus:outline-none rcp:hover:border-gray-400 ${isValidColor ? "rcp:focus:border-purple-500" : "rcp:focus:border-red-500"
                             } ${colorInputClassName}`}
                         placeholder="#RRGGBB"
                         maxLength={7}
                     />
                 </div>
                 <button
-                    className={`border border-solid bg-white border-gray-300 px-[9px] rounded-lg ${eyeDropperSupported
-                        ? "text-gray-500 hover:text-gray-700 cursor-pointer"
-                        : "text-gray-300 cursor-not-allowed"
+                    className={`rcp:border rcp:border-solid rcp:bg-white rcp:border-gray-300 rcp:px-[9px] rcp:rounded-lg ${eyeDropperSupported
+                        ? "rcp:text-gray-500 rcp:hover:text-gray-700 rcp:cursor-pointer"
+                        : "rcp:text-gray-300 rcp:cursor-not-allowed"
                         } ${eyeDropClassName}`}
                     onClick={handleEyeDropperClick}
                     disabled={!eyeDropperSupported}

@@ -49,18 +49,10 @@ export default Sample;
 
 # Styling (CSS)
 
-If you are not using tailwind css, import the css file-
+Import the css file once in your app (works with or without tailwind css)-
 
 ```javascript
 import "@siamf/react-color-pick/dist/index.css"
-```
-
-If you are using tailwind css-
-
-```css
-@source "../../node_modules/@siamf/react-color-pick"; 
-
-//Adjust the package path if need
 ```
 
 # Available props

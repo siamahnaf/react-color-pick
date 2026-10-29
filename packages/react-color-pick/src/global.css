@@ -1,1 +1,26 @@
-@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(rcp);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@layer base {
+    .rcp-root,
+    .rcp-root *,
+    .rcp-root ::before,
+    .rcp-root ::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+    }
+
+    .rcp-root input,
+    .rcp-root button {
+        font: inherit;
+        color: inherit;
+        background-color: transparent;
+    }
+
+    .rcp-root svg {
+        display: block;
+    }
+}
